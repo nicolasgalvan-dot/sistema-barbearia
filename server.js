@@ -280,6 +280,38 @@ app.get("/api/agendamentos", async (req, res) => {
     }
 });
 
+// Consultar agendamento por código ou telefone
+app.get("/api/agendamentos/:codigo", async (req, res) => {
+    try {
+        const { codigo } = req.params;
+        const termo = codigo.trim().toLowerCase();
+
+        // Tentar PostgreSQL se disponível
+        try {
+            const dbRes = await pool.query(
+                "SELECT * FROM agendamentos WHERE LOWER(codigo) = $1 OR telefone LIKE $2 LIMIT 1",
+                [termo, `%${termo}%`]
+            );
+            if (dbRes.rows && dbRes.rows.length > 0) {
+                return res.json({ sucesso: true, agendamento: dbRes.rows[0] });
+            }
+        } catch (e) {}
+
+        const item = agendamentos.find(a => 
+            (a.codigo && a.codigo.toLowerCase() === termo) ||
+            (a.telefone && a.telefone.replace(/\D/g, "").includes(termo.replace(/\D/g, "")))
+        );
+
+        if (item) {
+            return res.json({ sucesso: true, agendamento: item });
+        }
+
+        return res.status(404).json({ sucesso: false, erro: "Agendamento não encontrado com o código/telefone informado." });
+    } catch (error) {
+        return res.status(500).json({ sucesso: false, erro: error.message });
+    }
+});
+
 // Atualizar status do agendamento (ex: Confirmado, Concluído, Cancelado)
 app.put("/api/agendamentos/:codigo", async (req, res) => {
     try {
