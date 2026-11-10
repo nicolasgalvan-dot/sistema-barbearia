@@ -1,4 +1,4 @@
-#  Nicolas Galvan Barber Studio
+#  Barber Studio
 
 > Sistema completo e responsivo de agendamento online e gestão para barbearia de alto padrão.
 > **Autor & Idealizador:** NICOLAS GALVAN
