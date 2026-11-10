@@ -3,150 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barbearia Dom Navalha | Estilo, Tradição & Elegância</title>
+    <meta name="author" content="NICOLAS GALVAN">
+    <meta name="description" content="Nicolas Galvan Barber Studio - O mais alto padrão em cortes masculinos, barboterapia e visagismo. Agende seu horário online.">
+    <title>Nicolas Galvan Barber Studio | Tradição, Estilo & Excelência</title>
     
+    <!-- Google Fonts: Outfit (modern luxury display) & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- Barra de Anúncio / Status em Tempo Real -->
+    <div class="top-announcement">
+        <div class="container top-announcement-content">
+            <span><i class="fa-solid fa-circle live-indicator"></i> Aberto Hoje até às 20h30 • Av. Paulista, 1578</span>
+            <span class="top-announcement-link"><a href="#reserva"><i class="fa-regular fa-clock"></i> Reserve seu horário em menos de 1 minuto</a></span>
+        </div>
+    </div>
+
+    <!-- Navegação Principal -->
     <header class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#home" class="brand-logo">
-                <i class="fa-solid fa-scissors gold-text"></i>
+                <div class="brand-icon-box">
+                    <i class="fa-solid fa-scissors"></i>
+                </div>
                 <div class="brand-name">
-                    <span>DOM NAVALHA</span>
-                    <small>BARBER CLUB</small>
+                    <span>NICOLAS GALVAN</span>
+                    <small>BARBER STUDIO</small>
                 </div>
             </a>
 
             <nav class="nav-menu" id="nav-menu">
                 <a href="#home" class="nav-link active">Início</a>
-                <a href="#barbeiros" class="nav-link">Barbeiros</a>
-                <a href="#precos" class="nav-link">Serviços & Preços</a>
-                <a href="#reserva" class="nav-link">Agendamento</a>
+                <a href="#experiencia" class="nav-link">O Studio</a>
+                <a href="#barbeiros" class="nav-link">Nossa Equipe</a>
+                <a href="#precos" class="nav-link">Serviços</a>
+                <a href="#depoimentos" class="nav-link">Depoimentos</a>
                 <a href="#localizacao" class="nav-link">Localização</a>
-                <a href="#contato" class="nav-link">Contato</a>
-                <a href="#reserva" class="btn btn-primary nav-cta">Agendar Agora</a>
+                <a href="#reserva" class="btn btn-primary nav-cta">
+                    <i class="fa-regular fa-calendar-check"></i> Agendar Agora
+                </a>
             </nav>
 
-            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu">
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu de navegação">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="badge-tag">
-                <i class="fa-solid fa-crown gold-text"></i> Experiência Premium em Barbearia
+                <i class="fa-solid fa-crown gold-text"></i> Experiência Signature por Nicolas Galvan
             </div>
-            <h1 class="hero-title">Estilo, Tradição & Precisão Para o Homem Moderno</h1>
+            <h1 class="hero-title">Onde a Alta Barbearia Encontra a Sua Melhor Versão</h1>
             <p class="hero-subtitle">
-                Mais do que um simples corte, proporcionamos um ritual completo de cuidado masculino. 
-                Ambiente climatizado, toalha quente, cerveja artesanal e barbeiros especialistas.
+                Mais do que um simples corte: uma experiência de estética masculina de alto padrão. 
+                Visagismo sob medida, barboterapia com toalhas aquecidas, lounge privativo e cerveja artesanal cortesia.
             </p>
             <div class="hero-actions">
                 <a href="#reserva" class="btn btn-primary btn-lg">
-                    <i class="fa-regular fa-calendar-check"></i> Agendar Horário
+                    <i class="fa-regular fa-calendar-check"></i> Agendar Meu Horário
                 </a>
                 <a href="#precos" class="btn btn-outline btn-lg">
-                    <i class="fa-solid fa-list-check"></i> Ver Tabela de Preços
+                    <i class="fa-solid fa-scissors"></i> Conhecer Nossos Serviços
                 </a>
             </div>
 
             <div class="hero-stats">
                 <div class="stat-item">
-                    <span class="stat-number">10+</span>
-                    <span class="stat-label">Anos de Tradição</span>
+                    <span class="stat-number">12+</span>
+                    <span class="stat-label">Anos de Maestria</span>
                 </div>
                 <div class="stat-separator"></div>
                 <div class="stat-item">
-                    <span class="stat-number">+18k</span>
+                    <span class="stat-number">+20k</span>
                     <span class="stat-label">Clientes Atendidos</span>
                 </div>
                 <div class="stat-separator"></div>
                 <div class="stat-item">
-                    <span class="stat-number">4.9 <i class="fa-solid fa-star gold-text"></i></span>
-                    <span class="stat-label">Avaliação no Google</span>
+                    <span class="stat-number">5.0 <i class="fa-solid fa-star gold-text"></i></span>
+                    <span class="stat-label">Google Reviews (+650)</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="features">
+    <!-- O Padrão Galvan / Experiência -->
+    <section class="features" id="experiencia">
         <div class="container">
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon"><i class="fa-solid fa-beer-mug-empty"></i></div>
-                    <h3>Cerveja Artesanal Free</h3>
-                    <p>Relaxe com uma cerveja gelada ou café expresso de cortesia durante seu atendimento.</p>
+                    <h3>Open Bar & Lounge VIP</h3>
+                    <p>Deguste cervejas artesanais trincando de geladas, café espresso selecionado ou drinks cortesia durante seu ritual.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon"><i class="fa-solid fa-hot-tub-person"></i></div>
-                    <h3>Barboterapia Clássica</h3>
-                    <p>Toalha quente aromática, massagem facial e produtos nobres para sua pele.</p>
+                    <h3>Barboterapia Ozonizada</h3>
+                    <p>Toalhas quentes com óleos essenciais relaxantes, massagem facial antiestresse e produtos dermatológicos nobres.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon"><i class="fa-solid fa-gamepad"></i></div>
-                    <h3>Lounge & Entretenimento</h3>
-                    <p>Mesa de sinuca, videogame retrô e Wi-Fi de alta velocidade enquanto você espera.</p>
+                    <div class="feature-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <h3>Visagismo Personalizado</h3>
+                    <p>Consultoria técnica para harmonizar o corte e o contorno da barba com o formato exato da sua estrutura facial.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon"><i class="fa-solid fa-certificate"></i></div>
-                    <h3>Profissionais Mestres</h3>
-                    <p>Barbeiros certificados e atualizados com as melhores técnicas mundiais.</p>
+                    <div class="feature-icon"><i class="fa-solid fa-stopwatch"></i></div>
+                    <h3>Pontualidade Britânica</h3>
+                    <p>Respeito absoluto à sua rotina. Cadeira pronta no horário exato da sua reserva, sem esperas frustrantes.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Equipe de Barbeiros -->
     <section class="section team-section" id="barbeiros">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">NOSSA EQUIPE</span>
-                <h2 class="section-title">Conheça Nossos Barbeiros</h2>
-                <p class="section-desc">Mestres das lâminas prontos para valorizar seu visual com máxima atenção a cada detalhe.</p>
+                <span class="section-tag">CORPO PROFISSIONAL</span>
+                <h2 class="section-title">Equipe Nicolas Galvan Studio</h2>
+                <p class="section-desc">Artistas das lâminas capacitados nas mais consagradas academias do mundo para valorizar sua imagem.</p>
             </div>
 
             <div class="team-grid">
-                <div class="barber-card" data-barber-id="carlos">
+                <!-- Barbeiro 1: Nicolas Galvan -->
+                <div class="barber-card featured-barber" data-barber-id="nicolas">
                     <div class="barber-image-wrap">
-                        <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=700&q=80" alt="Carlos Silva" class="barber-img">
-                        <span class="barber-badge">Fundador</span>
+                        <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=700&q=80" alt="Nicolas Galvan" class="barber-img">
+                        <span class="barber-badge gold-badge"><i class="fa-solid fa-crown"></i> Fundador & Mestre</span>
                     </div>
                     <div class="barber-info">
-                        <h3 class="barber-name">Carlos "Navalha" Silva</h3>
-                        <span class="barber-role">Master Barber & Especialista em Fade</span>
-                        <p class="barber-bio">Mais de 12 anos de estrada. Especialista em degradê navalhado e visagismo masculino.</p>
+                        <h3 class="barber-name">Nicolas Galvan</h3>
+                        <span class="barber-role">Master Barber & Diretor Criativo</span>
+                        <p class="barber-bio">Mais de 12 anos de estrada. Criador do protocolo Signature Galvan de degradês milimétricos e visagismo de alta precisão.</p>
                         <div class="barber-meta">
                             <span><i class="fa-regular fa-clock gold-text"></i> 12 anos exp.</span>
-                            <span><i class="fa-solid fa-star gold-text"></i> 5.0 (420)</span>
+                            <span><i class="fa-solid fa-star gold-text"></i> 5.0 (480)</span>
                         </div>
-                        <button class="btn btn-outline btn-block select-barber-btn" data-barber="Carlos Silva">
-                            Escolher Carlos
+                        <button class="btn btn-primary btn-block select-barber-btn" data-barber="Nicolas Galvan">
+                            <i class="fa-solid fa-check"></i> Escolher Nicolas Galvan
                         </button>
                     </div>
                 </div>
 
+                <!-- Barbeiro 2: Rafael Mendes -->
                 <div class="barber-card" data-barber-id="rafael">
                     <div class="barber-image-wrap">
                         <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=700&q=80" alt="Rafael Mendes" class="barber-img">
-                        <span class="barber-badge">Especialista</span>
+                        <span class="barber-badge">Barboterapia</span>
                     </div>
                     <div class="barber-info">
                         <h3 class="barber-name">Rafael Mendes</h3>
-                        <span class="barber-role">Especialista em Barboterapia</span>
-                        <p class="barber-bio">Mestre do desenho de barba, alinhamento simétrico e cuidados com a pele masculina.</p>
+                        <span class="barber-role">Especialista em Spa da Barba</span>
+                        <p class="barber-bio">Mestre no alinhamento de lâmina, desenho geométrico de barba e cuidados com peles sensíveis.</p>
                         <div class="barber-meta">
                             <span><i class="fa-regular fa-clock gold-text"></i> 8 anos exp.</span>
-                            <span><i class="fa-solid fa-star gold-text"></i> 4.9 (310)</span>
+                            <span><i class="fa-solid fa-star gold-text"></i> 4.9 (340)</span>
                         </div>
                         <button class="btn btn-outline btn-block select-barber-btn" data-barber="Rafael Mendes">
                             Escolher Rafael
@@ -154,18 +177,19 @@
                     </div>
                 </div>
 
+                <!-- Barbeiro 3: Lucas Albuquerque -->
                 <div class="barber-card" data-barber-id="lucas">
                     <div class="barber-image-wrap">
                         <img src="https://images.unsplash.com/photo-1517832606589-7629c3397143?auto=format&fit=crop&w=700&q=80" alt="Lucas Albuquerque" class="barber-img">
-                        <span class="barber-badge">Freestyle</span>
+                        <span class="barber-badge">Trend Hunter</span>
                     </div>
                     <div class="barber-info">
                         <h3 class="barber-name">Lucas Albuquerque</h3>
-                        <span class="barber-role">Hair Stylist & Cortes Modernos</span>
-                        <p class="barber-bio">Focado nas últimas tendências urbanas, cortes texturizados, freestyle e riscos artísticos.</p>
+                        <span class="barber-role">Hair Stylist & Estilo Urbano</span>
+                        <p class="barber-bio">Focado nas vanguardas de cortes texturizados modernos, freestyle com lâmina e acabamentos artísticos.</p>
                         <div class="barber-meta">
                             <span><i class="fa-regular fa-clock gold-text"></i> 6 anos exp.</span>
-                            <span><i class="fa-solid fa-star gold-text"></i> 4.9 (285)</span>
+                            <span><i class="fa-solid fa-star gold-text"></i> 4.9 (295)</span>
                         </div>
                         <button class="btn btn-outline btn-block select-barber-btn" data-barber="Lucas Albuquerque">
                             Escolher Lucas
@@ -173,18 +197,19 @@
                     </div>
                 </div>
 
+                <!-- Barbeiro 4: André Santos -->
                 <div class="barber-card" data-barber-id="andre">
                     <div class="barber-image-wrap">
                         <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=700&q=80" alt="André Santos" class="barber-img">
-                        <span class="barber-badge">Clássico</span>
+                        <span class="barber-badge">Clássicos</span>
                     </div>
                     <div class="barber-info">
                         <h3 class="barber-name">André Santos</h3>
-                        <span class="barber-role">Especialista em Cortes Clássicos</span>
-                        <p class="barber-bio">Tradição inglesa na tesoura: Pompadour, Executive Contour e finalização com pomadas nobres.</p>
+                        <span class="barber-role">Mestre na Tesoura Britânica</span>
+                        <p class="barber-bio">Especialista no corte clássico executivo na tesoura, penteados Pompadour, Side Part e finalização com pomadas nobres.</p>
                         <div class="barber-meta">
                             <span><i class="fa-regular fa-clock gold-text"></i> 10 anos exp.</span>
-                            <span><i class="fa-solid fa-star gold-text"></i> 5.0 (390)</span>
+                            <span><i class="fa-solid fa-star gold-text"></i> 5.0 (410)</span>
                         </div>
                         <button class="btn btn-outline btn-block select-barber-btn" data-barber="André Santos">
                             Escolher André
@@ -195,115 +220,153 @@
         </div>
     </section>
 
+    <!-- Catálogo de Serviços e Preços -->
     <section class="section pricing-section" id="precos">
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">MENU EXCLUSIVO</span>
-                <h2 class="section-title">Serviços & Tabela de Valores</h2>
-                <p class="section-desc">Trabalhos executados com excelência, cosméticos importados e respeito ao seu tempo.</p>
+                <h2 class="section-title">Serviços & Investimento</h2>
+                <p class="section-desc">Procedimentos de excelência com cosméticos premium internacionais e atenção total aos detalhes.</p>
+            </div>
+
+            <!-- Filtro de Categorias Interativo -->
+            <div class="service-filter-container">
+                <button class="filter-btn active" data-filter="all">Todos os Serviços</button>
+                <button class="filter-btn" data-filter="combos">Combos VIP</button>
+                <button class="filter-btn" data-filter="cabelo">Cortes de Cabelo</button>
+                <button class="filter-btn" data-filter="barba">Barba & Terapias</button>
+                <button class="filter-btn" data-filter="tratamentos">Tratamentos</button>
             </div>
 
             <div class="pricing-grid">
-                <div class="pricing-card" data-service="Corte Clássico / Fade" data-price="45.00" data-duration="40 min">
+                <!-- Serviço 1: Combo VIP Nicolas Galvan -->
+                <div class="pricing-card featured" data-category="combos" data-service="Combo VIP Nicolas Galvan" data-price="85.00" data-duration="65 min">
+                    <div class="popular-ribbon"><i class="fa-solid fa-fire"></i> Assinatura Mais Escolhida</div>
                     <div class="price-header">
-                        <h3>Corte Masculino</h3>
-                        <span class="service-time"><i class="fa-regular fa-clock"></i> 40 min</span>
-                    </div>
-                    <div class="price-value">
-                        <small>R$</small>45<small>,00</small>
-                    </div>
-                    <p class="price-desc">Fade, Degradê navalhado, militar ou tesoura com lavagem refrescante e finalização com pomada.</p>
-                    <ul class="price-features">
-                        <li><i class="fa-solid fa-check gold-text"></i> Lavagem especial com mentol</li>
-                        <li><i class="fa-solid fa-check gold-text"></i> Finalização com produtos premium</li>
-                        <li><i class="fa-solid fa-check gold-text"></i> Bebida cortesia inclusa</li>
-                    </ul>
-                    <button class="btn btn-outline btn-block select-service-btn">Agendar Este Serviço</button>
-                </div>
-
-                <div class="pricing-card" data-service="Barba Terapia Completa" data-price="40.00" data-duration="35 min">
-                    <div class="price-header">
-                        <h3>Barba Terapia</h3>
-                        <span class="service-time"><i class="fa-regular fa-clock"></i> 35 min</span>
-                    </div>
-                    <div class="price-value">
-                        <small>R$</small>40<small>,00</small>
-                    </div>
-                    <p class="price-desc">Design e alinhamento de barba com lâmina descartável, óleo pré-barba e toalha vaporizada quente.</p>
-                    <ul class="price-features">
-                        <li><i class="fa-solid fa-check gold-text"></i> Toalha quente e óleos essenciais</li>
-                        <li><i class="fa-solid fa-check gold-text"></i> Pós-barba calmante anti-irritação</li>
-                        <li><i class="fa-solid fa-check gold-text"></i> Hidratação com balm e óleo nobre</li>
-                    </ul>
-                    <button class="btn btn-outline btn-block select-service-btn">Agendar Este Serviço</button>
-                </div>
-
-                <div class="pricing-card featured" data-service="Combo VIP (Corte + Barba + Sobrancelha)" data-price="75.00" data-duration="65 min">
-                    <div class="popular-ribbon"><i class="fa-solid fa-fire"></i> Mais Escolhido</div>
-                    <div class="price-header">
-                        <h3>Combo VIP Dom Navalha</h3>
+                        <div>
+                            <h3>Combo VIP Nicolas Galvan</h3>
+                            <span class="service-category-tag">Experiência Signature</span>
+                        </div>
                         <span class="service-time"><i class="fa-regular fa-clock"></i> 65 min</span>
                     </div>
                     <div class="price-value">
-                        <small>R$</small>75<small>,00</small>
+                        <small>R$</small>85<small>,00</small>
                     </div>
-                    <p class="price-desc">A experiência completa de transformação: corte completo, barboterapia relaxante e alinhamento facial.</p>
+                    <p class="price-desc">A experiência máxima do studio: corte personalizado, barboterapia relaxante com toalha aquecida e sobrancelha na lâmina.</p>
                     <ul class="price-features">
-                        <li><i class="fa-solid fa-check gold-text"></i> Corte completo + Lavagem</li>
-                        <li><i class="fa-solid fa-check gold-text"></i> Barboterapia com toalha quente</li>
-                        <li><i class="fa-solid fa-check gold-text"></i> Design de sobrancelha na lâmina</li>
-                        <li><i class="fa-solid fa-check gold-text"></i> Cerveja artesanal ou café expresso</li>
+                        <li><i class="fa-solid fa-check gold-text"></i> Corte completo + Lavagem energizante</li>
+                        <li><i class="fa-solid fa-check gold-text"></i> Barboterapia com óleos essenciais</li>
+                        <li><i class="fa-solid fa-check gold-text"></i> Alinhamento e design de sobrancelha</li>
+                        <li><i class="fa-solid fa-check gold-text"></i> Chopp artesanal ou café espresso duplo</li>
                     </ul>
-                    <button class="btn btn-primary btn-block select-service-btn">Agendar Combo VIP</button>
+                    <button class="btn btn-primary btn-block select-service-btn">
+                        <i class="fa-regular fa-calendar-check"></i> Agendar Combo VIP
+                    </button>
                 </div>
 
-                <div class="pricing-card" data-service="Pigmentação de Barba ou Cabelo" data-price="35.00" data-duration="30 min">
+                <!-- Serviço 2: Corte Signature Fade -->
+                <div class="pricing-card" data-category="cabelo" data-service="Corte Signature Fade / Degradê" data-price="50.00" data-duration="40 min">
                     <div class="price-header">
-                        <h3>Pigmentação</h3>
-                        <span class="service-time"><i class="fa-regular fa-clock"></i> 30 min</span>
-                    </div>
-                    <div class="price-value">
-                        <small>R$</small>35<small>,00</small>
-                    </div>
-                    <p class="price-desc">Correção de falhas e realce natural das linhas do corte ou barba com tinta temporária antialérgica.</p>
-                    <ul class="price-features">
-                        <li><i class="fa-solid fa-check gold-text"></i> Disfarce de fios brancos/falhas</li>
-                        <li><i class="fa-solid fa-check gold-text"></i> Efeito duradouro de alta fixação</li>
-                        <li><i class="fa-solid fa-check gold-text"></i> Acabamento natural e definido</li>
-                    </ul>
-                    <button class="btn btn-outline btn-block select-service-btn">Agendar Este Serviço</button>
-                </div>
-
-                <div class="pricing-card" data-service="Tratamento & Hidratação Capilar" data-price="50.00" data-duration="35 min">
-                    <div class="price-header">
-                        <h3>Hidratação & Selagem</h3>
-                        <span class="service-time"><i class="fa-regular fa-clock"></i> 35 min</span>
+                        <div>
+                            <h3>Corte Signature Fade</h3>
+                            <span class="service-category-tag">Cabelo</span>
+                        </div>
+                        <span class="service-time"><i class="fa-regular fa-clock"></i> 40 min</span>
                     </div>
                     <div class="price-value">
                         <small>R$</small>50<small>,00</small>
                     </div>
-                    <p class="price-desc">Recuperação profunda dos fios, redução de frizz, alinhamento capilar e brilho saudável.</p>
+                    <p class="price-desc">Fade, degradê navalhado, militar ou tesoura britânica com lavagem com xampu de mentol e modelagem.</p>
                     <ul class="price-features">
-                        <li><i class="fa-solid fa-check gold-text"></i> Máscara reconstrutora nutritiva</li>
-                        <li><i class="fa-solid fa-check gold-text"></i> Massagem capilar relaxante</li>
-                        <li><i class="fa-solid fa-check gold-text"></i> Proteção térmica anti-quebra</li>
+                        <li><i class="fa-solid fa-check gold-text"></i> Análise de visagismo facial</li>
+                        <li><i class="fa-solid fa-check gold-text"></i> Lavagem especial refrescante</li>
+                        <li><i class="fa-solid fa-check gold-text"></i> Finalização com pomada matte importada</li>
+                        <li><i class="fa-solid fa-check gold-text"></i> Bebida cortesia da casa inclusa</li>
                     </ul>
                     <button class="btn btn-outline btn-block select-service-btn">Agendar Este Serviço</button>
                 </div>
 
-                <div class="pricing-card" data-service="Corte Infantil" data-price="40.00" data-duration="30 min">
+                <!-- Serviço 3: Barboterapia Premium -->
+                <div class="pricing-card" data-category="barba" data-service="Barboterapia Premium com Toalha Quente" data-price="45.00" data-duration="35 min">
                     <div class="price-header">
-                        <h3>Corte Kids (Até 12 anos)</h3>
+                        <div>
+                            <h3>Barboterapia Premium</h3>
+                            <span class="service-category-tag">Barba</span>
+                        </div>
+                        <span class="service-time"><i class="fa-regular fa-clock"></i> 35 min</span>
+                    </div>
+                    <div class="price-value">
+                        <small>R$</small>45<small>,00</small>
+                    </div>
+                    <p class="price-desc">Design anatômico de barba com lâmina descartável, óleo pré-barba emoliente e vaporização de toalha quente.</p>
+                    <ul class="price-features">
+                        <li><i class="fa-solid fa-check gold-text"></i> Toalha aquecida com óleo de eucalipto</li>
+                        <li><i class="fa-solid fa-check gold-text"></i> Lâmina cirúrgica esterilizada</li>
+                        <li><i class="fa-solid fa-check gold-text"></i> Pós-barba anti-irritação & balm nobre</li>
+                        <li><i class="fa-solid fa-check gold-text"></i> Massagem facial relaxante</li>
+                    </ul>
+                    <button class="btn btn-outline btn-block select-service-btn">Agendar Este Serviço</button>
+                </div>
+
+                <!-- Serviço 4: Pigmentação de Barba & Cabelo -->
+                <div class="pricing-card" data-category="tratamentos" data-service="Pigmentação de Barba & Cabelo" data-price="40.00" data-duration="30 min">
+                    <div class="price-header">
+                        <div>
+                            <h3>Pigmentação Signature</h3>
+                            <span class="service-category-tag">Coloração & Design</span>
+                        </div>
                         <span class="service-time"><i class="fa-regular fa-clock"></i> 30 min</span>
                     </div>
                     <div class="price-value">
                         <small>R$</small>40<small>,00</small>
                     </div>
-                    <p class="price-desc">Atendimento paciente e carinhoso para os pequenos, com videogame e ambiente acolhedor.</p>
+                    <p class="price-desc">Correção de falhas e realce natural das linhas do corte ou barba com tintura antialérgica de alta fixação.</p>
                     <ul class="price-features">
-                        <li><i class="fa-solid fa-check gold-text"></i> Barbeiros com didática e paciência</li>
+                        <li><i class="fa-solid fa-check gold-text"></i> Disfarce natural de fios grisalhos</li>
+                        <li><i class="fa-solid fa-check gold-text"></i> Delineamento ultra nítido das linhas</li>
+                        <li><i class="fa-solid fa-check gold-text"></i> Tinta dermatologicamente testada</li>
+                    </ul>
+                    <button class="btn btn-outline btn-block select-service-btn">Agendar Este Serviço</button>
+                </div>
+
+                <!-- Serviço 5: Terapia Capilar & Hidratação -->
+                <div class="pricing-card" data-category="tratamentos" data-service="Terapia Capilar & Hidratação Ozonizada" data-price="55.00" data-duration="35 min">
+                    <div class="price-header">
+                        <div>
+                            <h3>Terapia Capilar & Selagem</h3>
+                            <span class="service-category-tag">Tratamento</span>
+                        </div>
+                        <span class="service-time"><i class="fa-regular fa-clock"></i> 35 min</span>
+                    </div>
+                    <div class="price-value">
+                        <small>R$</small>55<small>,00</small>
+                    </div>
+                    <p class="price-desc">Recuperação profunda dos fios danificados, controle de oleosidade e fortalecimento da raiz capilar.</p>
+                    <ul class="price-features">
+                        <li><i class="fa-solid fa-check gold-text"></i> Máscara reconstrutora nutritiva</li>
+                        <li><i class="fa-solid fa-check gold-text"></i> Vapor de ozônio purificante</li>
+                        <li><i class="fa-solid fa-check gold-text"></i> Massagem estimulante no couro cabeludo</li>
+                    </ul>
+                    <button class="btn btn-outline btn-block select-service-btn">Agendar Este Serviço</button>
+                </div>
+
+                <!-- Serviço 6: Corte Infantil Kids -->
+                <div class="pricing-card" data-category="cabelo" data-service="Corte Infantil Kids (Até 12 anos)" data-price="42.00" data-duration="30 min">
+                    <div class="price-header">
+                        <div>
+                            <h3>Corte Kids (Até 12 anos)</h3>
+                            <span class="service-category-tag">Cabelo Infantil</span>
+                        </div>
+                        <span class="service-time"><i class="fa-regular fa-clock"></i> 30 min</span>
+                    </div>
+                    <div class="price-value">
+                        <small>R$</small>42<small>,00</small>
+                    </div>
+                    <p class="price-desc">Atendimento extremamente paciente e acolhedor para as crianças, com ambiente lúdico e videogame.</p>
+                    <ul class="price-features">
+                        <li><i class="fa-solid fa-check gold-text"></i> Profissionais especializados em crianças</li>
                         <li><i class="fa-solid fa-check gold-text"></i> Videogame liberado durante o corte</li>
-                        <li><i class="fa-solid fa-check gold-text"></i> Pirulito e brinde especial</li>
+                        <li><i class="fa-solid fa-check gold-text"></i> Brinde e doce no final do atendimento</li>
                     </ul>
                     <button class="btn btn-outline btn-block select-service-btn">Agendar Este Serviço</button>
                 </div>
@@ -311,108 +374,111 @@
         </div>
     </section>
 
+    <!-- Formulário e Módulo de Agendamento Online -->
     <section class="section booking-section" id="reserva">
         <div class="container">
             <div class="booking-wrapper">
                 <div class="booking-info-col">
-                    <span class="section-tag">RESERVA ONLINE</span>
-                    <h2 class="section-title">Agende seu Momento em 1 Minuto</h2>
+                    <span class="section-tag">SISTEMA INTELIGENTE DE RESERVAS</span>
+                    <h2 class="section-title">Garanta Sua Cadeira em 60 Segundos</h2>
                     <p class="section-desc">
-                        Escolha seu barbeiro de confiança, o serviço ideal e o horário que melhor se adapta à sua rotina.
+                        Reserve diretamente com o barbeiro de sua preferência. Sistema integrado em tempo real com confirmação imediata.
                     </p>
 
                     <div class="booking-highlights">
                         <div class="highlight-item">
                             <div class="highlight-icon"><i class="fa-solid fa-bolt"></i></div>
                             <div>
-                                <h4>Confirmação Imediata</h4>
-                                <p>Receba a confirmação do seu horário na hora no seu WhatsApp.</p>
+                                <h4>Confirmação Imediata via WhatsApp</h4>
+                                <p>Receba na hora o cartão de confirmação com código único da sua reserva.</p>
                             </div>
                         </div>
                         <div class="highlight-item">
-                            <div class="highlight-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                            <div class="highlight-icon"><i class="fa-solid fa-shield-halved"></i></div>
                             <div>
-                                <h4>Sem Filas de Espera</h4>
-                                <p>Chegue no horário marcado e sua cadeira estará pronta.</p>
+                                <h4>Sem Cobrança Antecipada</h4>
+                                <p>Pague apenas no local via Pix, Cartão de Crédito/Débito ou Dinheiro.</p>
                             </div>
                         </div>
                         <div class="highlight-item">
-                            <div class="highlight-icon"><i class="fa-solid fa-credit-card"></i></div>
+                            <div class="highlight-icon"><i class="fa-solid fa-user-check"></i></div>
                             <div>
-                                <h4>Pague Apenas no Local</h4>
-                                <p>Aceitamos Pix, Cartão de Crédito/Débito e Dinheiro no checkout.</p>
+                                <h4>Cadeira Reservada e Higienizada</h4>
+                                <p>Instrumentos esterilizados e bancada pronta no seu horário exato.</p>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Resumo Dinâmico da Reserva -->
                     <div class="booking-summary-card">
-                        <h4><i class="fa-solid fa-receipt gold-text"></i> Resumo da Reserva</h4>
+                        <h4><i class="fa-solid fa-receipt gold-text"></i> Resumo do Agendamento</h4>
                         <div class="summary-row">
-                            <span>Serviço:</span>
-                            <strong id="summary-service">Combo VIP Dom Navalha</strong>
+                            <span>Serviço Selecionado:</span>
+                            <strong id="summary-service">Combo VIP Nicolas Galvan</strong>
                         </div>
                         <div class="summary-row">
                             <span>Profissional:</span>
-                            <strong id="summary-barber">Carlos Silva</strong>
+                            <strong id="summary-barber">Nicolas Galvan</strong>
                         </div>
                         <div class="summary-row">
-                            <span>Data e Horário:</span>
-                            <strong id="summary-datetime">Selecione abaixo</strong>
+                            <span>Data & Horário:</span>
+                            <strong id="summary-datetime">Selecione uma data e hora</strong>
                         </div>
                         <div class="summary-row summary-total">
                             <span>Valor Estimado:</span>
-                            <strong id="summary-price" class="gold-text">R$ 75,00</strong>
+                            <strong id="summary-price" class="gold-text">R$ 85,00</strong>
                         </div>
                     </div>
                 </div>
 
                 <div class="booking-form-col">
                     <form id="booking-form" class="booking-form">
-                        <h3 class="form-title">Dados do Agendamento</h3>
+                        <h3 class="form-title"><i class="fa-solid fa-calendar-plus gold-text"></i> Preencha Seus Dados</h3>
 
                         <div class="form-group">
-                            <label for="select-service"><i class="fa-solid fa-scissors gold-text"></i> 1. Escolha o Serviço</label>
+                            <label for="select-service"><i class="fa-solid fa-scissors gold-text"></i> 1. Selecione o Serviço Desejado</label>
                             <select id="select-service" class="form-control" required>
-                                <option value="Combo VIP (Corte + Barba + Sobrancelha)" data-price="75.00" data-duration="65 min" selected>Combo VIP Dom Navalha (R$ 75,00 - 65 min)</option>
-                                <option value="Corte Clássico / Fade" data-price="45.00" data-duration="40 min">Corte Masculino Fade/Clássico (R$ 45,00 - 40 min)</option>
-                                <option value="Barba Terapia Completa" data-price="40.00" data-duration="35 min">Barba Terapia com Toalha Quente (R$ 40,00 - 35 min)</option>
-                                <option value="Pigmentação de Barba ou Cabelo" data-price="35.00" data-duration="30 min">Pigmentação Barba/Cabelo (R$ 35,00 - 30 min)</option>
-                                <option value="Tratamento & Hidratação Capilar" data-price="50.00" data-duration="35 min">Hidratação & Selagem Capilar (R$ 50,00 - 35 min)</option>
-                                <option value="Corte Infantil" data-price="40.00" data-duration="30 min">Corte Kids Infantil (R$ 40,00 - 30 min)</option>
+                                <option value="Combo VIP Nicolas Galvan" data-price="85.00" data-duration="65 min" selected>Combo VIP Nicolas Galvan (R$ 85,00 - 65 min)</option>
+                                <option value="Corte Signature Fade / Degradê" data-price="50.00" data-duration="40 min">Corte Signature Fade / Degradê (R$ 50,00 - 40 min)</option>
+                                <option value="Barboterapia Premium com Toalha Quente" data-price="45.00" data-duration="35 min">Barboterapia Premium com Toalha Quente (R$ 45,00 - 35 min)</option>
+                                <option value="Pigmentação de Barba & Cabelo" data-price="40.00" data-duration="30 min">Pigmentação de Barba & Cabelo (R$ 40,00 - 30 min)</option>
+                                <option value="Terapia Capilar & Hidratação Ozonizada" data-price="55.00" data-duration="35 min">Terapia Capilar & Hidratação (R$ 55,00 - 35 min)</option>
+                                <option value="Corte Infantil Kids (Até 12 anos)" data-price="42.00" data-duration="30 min">Corte Infantil Kids (R$ 42,00 - 30 min)</option>
                             </select>
                         </div>
 
                         <div class="form-group">
-                            <label for="select-barber"><i class="fa-solid fa-user-ninja gold-text"></i> 2. Escolha o Barbeiro</label>
+                            <label for="select-barber"><i class="fa-solid fa-user-tie gold-text"></i> 2. Escolha o Profissional</label>
                             <select id="select-barber" class="form-control" required>
-                                <option value="Qualquer Profissional Disponível">Qualquer Profissional Disponível (Mais Rápido)</option>
-                                <option value="Carlos Silva" selected>Carlos "Navalha" Silva (Master)</option>
-                                <option value="Rafael Mendes">Rafael Mendes (Barboterapia)</option>
-                                <option value="Lucas Albuquerque">Lucas Albuquerque (Freestyle/Moderno)</option>
-                                <option value="André Santos">André Santos (Clássico)</option>
+                                <option value="Qualquer Barbeiro Disponível">Qualquer Barbeiro Disponível (Encaixe Mais Rápido)</option>
+                                <option value="Nicolas Galvan" selected>Nicolas Galvan (Master Barber & Fundador)</option>
+                                <option value="Rafael Mendes">Rafael Mendes (Especialista em Barba)</option>
+                                <option value="Lucas Albuquerque">Lucas Albuquerque (Hair Stylist & Freestyle)</option>
+                                <option value="André Santos">André Santos (Cortes Clássicos na Tesoura)</option>
                             </select>
                         </div>
 
                         <div class="form-group">
-                            <label for="booking-date"><i class="fa-regular fa-calendar-days gold-text"></i> 3. Escolha a Data</label>
+                            <label for="booking-date"><i class="fa-regular fa-calendar-days gold-text"></i> 3. Escolha o Dia</label>
                             <input type="date" id="booking-date" class="form-control" required>
                         </div>
 
                         <div class="form-group">
-                            <label><i class="fa-regular fa-clock gold-text"></i> 4. Horários Disponíveis</label>
+                            <label><i class="fa-regular fa-clock gold-text"></i> 4. Selecione o Horário</label>
                             <div class="time-slots-grid" id="time-slots-container">
+                                <!-- Preenchido dinamicamente via script.js -->
                             </div>
                             <input type="hidden" id="selected-time" required>
                         </div>
 
                         <div class="form-group">
                             <label for="client-name"><i class="fa-regular fa-user gold-text"></i> 5. Seu Nome Completo</label>
-                            <input type="text" id="client-name" class="form-control" placeholder="Ex: Lucas Gabriel" required>
+                            <input type="text" id="client-name" class="form-control" placeholder="Ex: Nicolas Galvan" required>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="client-phone"><i class="fa-brands fa-whatsapp gold-text"></i> WhatsApp</label>
+                                <label for="client-phone"><i class="fa-brands fa-whatsapp gold-text"></i> Seu WhatsApp</label>
                                 <input type="tel" id="client-phone" class="form-control" placeholder="(11) 99999-9999" required>
                             </div>
                             <div class="form-group">
@@ -422,15 +488,15 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="client-notes"><i class="fa-regular fa-comment-dots gold-text"></i> Observações ou Preferências (Opcional)</label>
-                            <textarea id="client-notes" class="form-control" rows="2" placeholder="Ex: Gosto do fade bem raspado na zero alta..."></textarea>
+                            <label for="client-notes"><i class="fa-regular fa-comment-dots gold-text"></i> Preferências ou Observações (Opcional)</label>
+                            <textarea id="client-notes" class="form-control" rows="2" placeholder="Ex: Prefiro o degradê navalhado bem rente na zero..."></textarea>
                         </div>
 
                         <button type="submit" class="btn btn-primary btn-block btn-lg" id="submit-booking-btn">
-                            <i class="fa-solid fa-check-circle"></i> Confirmar Agendamento Agora
+                            <i class="fa-solid fa-circle-check"></i> Finalizar Agendamento
                         </button>
                         <p class="form-disclaimer">
-                            <i class="fa-solid fa-shield-halved"></i> Seus dados estão protegidos. Confirmação imediata por WhatsApp.
+                            <i class="fa-solid fa-lock"></i> Seus dados estão 100% seguros. Não compartilhamos suas informações.
                         </p>
                     </form>
                 </div>
@@ -438,12 +504,80 @@
         </div>
     </section>
 
+    <!-- Depoimentos e Avaliações Reais -->
+    <section class="section testimonials-section" id="depoimentos">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">PROVA SOCIAL</span>
+                <h2 class="section-title">O Que Falam Nossos Clientes</h2>
+                <p class="section-desc">Mais de 650 avaliações de 5 estrelas atestam a qualidade do atendimento no Nicolas Galvan Studio.</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"O Nicolas Galvan acertou perfeitamente o corte e o contorno da barba que eu procurava há anos. A toalha quente e o Chopp de cortesia fecharam a experiência com chave de ouro!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"><i class="fa-solid fa-user"></i></div>
+                        <div>
+                            <h4>Rodrigo Fonseca</h4>
+                            <small>Cliente há 3 anos • Google Review</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Atendimento pontual ao extremo. Marquei para 14h30, às 14h28 o barbeiro já me chamou. O Combo VIP vale cada centavo pelo relaxamento e qualidade do acabamento."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"><i class="fa-solid fa-user"></i></div>
+                        <div>
+                            <h4>Marcelo Siqueira</h4>
+                            <small>Executivo • Google Review</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"O ambiente é incrível, climatizado, com sinuca e música ambiente de muito bom gosto. Os produtos que o Nicolas usa na barba deixam a pele sem nenhuma irritação."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"><i class="fa-solid fa-user"></i></div>
+                        <div>
+                            <h4>Gustavo Henrique</h4>
+                            <small>Advogado • Google Review</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Localização & Horários de Atendimento -->
     <section class="section location-section" id="localizacao">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">NOSSA CASA</span>
-                <h2 class="section-title">Onde Estamos & Horários</h2>
-                <p class="section-desc">Fácil acesso, ambiente seguro e estacionamento com manobrista gratuito.</p>
+                <span class="section-tag">ONDE ESTAMOS</span>
+                <h2 class="section-title">Localização & Funcionamento</h2>
+                <p class="section-desc">Ponto nobre de São Paulo com fácil acesso, segurança 24h e manobrista gratuito no local.</p>
             </div>
 
             <div class="location-grid">
@@ -451,9 +585,9 @@
                     <div class="info-block">
                         <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
                         <div>
-                            <h4>Endereço</h4>
+                            <h4>Endereço do Studio</h4>
                             <p>Av. Paulista, 1578 - Cerqueira César<br>São Paulo - SP, CEP: 01310-200</p>
-                            <small class="text-gold"><i class="fa-solid fa-square-parking"></i> Estacionamento gratuito no local</small>
+                            <small class="text-gold"><i class="fa-solid fa-square-parking"></i> Estacionamento e manobrista cortesia</small>
                         </div>
                     </div>
 
@@ -462,9 +596,9 @@
                         <div>
                             <h4>Horários de Atendimento</h4>
                             <ul class="hours-list">
-                                <li><span>Segunda à Sexta:</span> <strong>09:00 - 20:30</strong></li>
-                                <li><span>Sábado:</span> <strong>08:30 - 19:30</strong></li>
-                                <li><span>Domingo e Feriados:</span> <strong class="text-gold">10:00 - 16:00 (Plantão)</strong></li>
+                                <li><span>Segunda a Sexta:</span> <strong>09h00 às 20h30</strong></li>
+                                <li><span>Sábados:</span> <strong>08h30 às 19h30</strong></li>
+                                <li><span>Domingos e Feriados:</span> <strong class="text-gold">10h00 às 16h00 (Plantão VIP)</strong></li>
                             </ul>
                         </div>
                     </div>
@@ -472,19 +606,19 @@
                     <div class="info-block">
                         <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
                         <div>
-                            <h4>Telefones & WhatsApp</h4>
-                            <p>WhatsApp: <strong>(11) 98765-4321</strong><br>Telefone Fixo: <strong>(11) 3245-8890</strong></p>
+                            <h4>Fale Conosco</h4>
+                            <p>WhatsApp Comercial: <strong>(11) 98765-4321</strong><br>Recepção: <strong>(11) 3245-8890</strong></p>
                         </div>
                     </div>
 
-                    <a href="https://maps.google.com" target="_blank" class="btn btn-outline btn-block">
-                        <i class="fa-solid fa-diamond-turn-right"></i> Abrir no Google Maps / Waze
+                    <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-block">
+                        <i class="fa-solid fa-diamond-turn-right"></i> Traçar Rota no Google Maps / Waze
                     </a>
                 </div>
 
                 <div class="map-container">
                     <iframe 
-                        title="Localização Barbearia Dom Navalha"
+                        title="Localização Nicolas Galvan Barber Studio"
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.098254271424!2d-46.65499292379058!3d-23.56491297880016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
                         allowfullscreen="" 
                         loading="lazy" 
@@ -495,83 +629,87 @@
         </div>
     </section>
 
+    <!-- Perguntas Frequentes & Contato Direto -->
     <section class="section faq-section" id="contato">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">DÚVIDAS & CONTATO</span>
+                <span class="section-tag">TIRE SUAS DÚVIDAS</span>
                 <h2 class="section-title">Perguntas Frequentes</h2>
-                <p class="section-desc">Tire suas dúvidas antes de sua visita ou fale diretamente conosco.</p>
+                <p class="section-desc">Tudo o que você precisa saber antes de fazer sua visita ao nosso studio.</p>
             </div>
 
             <div class="faq-container">
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>Preciso agendar com antecedência ou posso chegar sem hora marcada?</span>
+                        <span>É necessário agendar previamente ou atendem por ordem de chegada?</span>
                         <i class="fa-solid fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Recomendamos sempre o agendamento prévio online para garantir o barbeiro de sua preferência sem fila. No entanto, também atendemos por ordem de chegada conforme disponibilidade de cadeiras.</p>
+                        <p>Recomendamos fortemente o agendamento prévio online para garantir o barbeiro de sua preferência sem tempo de espera. No entanto, também temos disponibilidade para encaixes de acordo com as vagas do dia.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>Quais são as formas de pagamento aceitas?</span>
+                        <span>Quais modalidades de pagamento são aceitas?</span>
                         <i class="fa-solid fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Aceitamos Pix, cartões de crédito (parcelamento para pacotes mensais), cartões de débito e dinheiro em espécie.</p>
+                        <p>Aceitamos Pix, cartões de crédito (com opção de parcelamento para pacotes), cartões de débito e dinheiro em espécie diretamente na recepção.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>O que acontece se eu me atrasar para o agendamento?</span>
+                        <span>Existe tolerância de atraso no horário agendado?</span>
                         <i class="fa-solid fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Possuímos uma tolerância de 10 minutos para não comprometer a agenda dos clientes seguintes. Caso vá se atrasar, envie uma mensagem pelo WhatsApp e ajustamos seu horário!</p>
+                        <p>Trabalhamos com tolerância de até 10 minutos para não prejudicar os clientes dos horários seguintes. Em caso de imprevistos, basta nos avisar pelo WhatsApp que reorganizamos seu horário sem problemas!</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>A cerveja artesanal e café são realmente gratuitos?</span>
+                        <span>As bebidas do Lounge e Open Bar são realmente gratuitas?</span>
                         <i class="fa-solid fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Sim! Todos os nossos clientes têm direito a 1 cerveja artesanal trincando de gelada ou cafés expressos especiais como cortesia da casa.</p>
+                        <p>Com certeza! Todo cliente do Nicolas Galvan Barber Studio desfruta de cerveja artesanal trincando, cafés expressos gourmets, refrigerantes e água mineral como cortesia da casa.</p>
                     </div>
                 </div>
             </div>
 
             <div class="direct-contact-card">
                 <div class="contact-text">
-                    <h3>Prefere falar direto pelo WhatsApp?</h3>
-                    <p>Nossa recepcionista virtual ou equipe de atendimento responde em poucos instantes.</p>
+                    <h3>Deseja tirar alguma dúvida pelo WhatsApp?</h3>
+                    <p>Fale diretamente com nossa recepção ou com a equipe de Nicolas Galvan.</p>
                 </div>
-                <a href="https://wa.me/5511987654321?text=Ol%C3%A1%2C+gostaria+de+saber+mais+sobre+a+Barbearia+Dom+Navalha!" target="_blank" class="btn btn-whatsapp btn-lg">
-                    <i class="fa-brands fa-whatsapp"></i> Conversar no WhatsApp
+                <a href="https://wa.me/5511987654321?text=Ol%C3%A1%2C+gostaria+de+falar+com+o+Nicolas+Galvan+Barber+Studio!" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">
+                    <i class="fa-brands fa-whatsapp"></i> Iniciar Conversa no WhatsApp
                 </a>
             </div>
         </div>
     </section>
 
+    <!-- Rodapé Oficial -->
     <footer class="footer">
         <div class="container footer-content">
             <div class="footer-col brand-col">
                 <div class="brand-logo">
-                    <i class="fa-solid fa-scissors gold-text"></i>
+                    <div class="brand-icon-box">
+                        <i class="fa-solid fa-scissors"></i>
+                    </div>
                     <div class="brand-name">
-                        <span>DOM NAVALHA</span>
-                        <small>BARBER CLUB</small>
+                        <span>NICOLAS GALVAN</span>
+                        <small>BARBER STUDIO</small>
                     </div>
                 </div>
                 <p class="footer-about">
-                    Elevando o padrão do cuidado masculino há mais de uma década. Tradição, respeito e técnicas de vanguarda em cada detalhe.
+                    Redefinindo os padrões do cuidado masculino com visagismo exclusivo, técnicas modernas de barbearia e uma experiência acolhedora e refinada.
                 </p>
                 <div class="social-links">
-                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Instagram de Nicolas Galvan"><i class="fa-brands fa-instagram"></i></a>
                     <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
                     <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
                     <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
@@ -579,12 +717,13 @@
             </div>
 
             <div class="footer-col">
-                <h4>Navegação</h4>
+                <h4>Navegação Rápida</h4>
                 <ul class="footer-links">
                     <li><a href="#home">Início</a></li>
-                    <li><a href="#barbeiros">Barbeiros</a></li>
+                    <li><a href="#experiencia">O Studio</a></li>
+                    <li><a href="#barbeiros">Nossa Equipe</a></li>
                     <li><a href="#precos">Serviços & Preços</a></li>
-                    <li><a href="#reserva">Agendamento</a></li>
+                    <li><a href="#reserva">Agendamento Online</a></li>
                     <li><a href="#localizacao">Localização</a></li>
                 </ul>
             </div>
@@ -592,60 +731,66 @@
             <div class="footer-col">
                 <h4>Serviços Populares</h4>
                 <ul class="footer-links">
-                    <li><a href="#reserva">Corte Degradê / Fade</a></li>
-                    <li><a href="#reserva">Barboterapia com Toalha</a></li>
-                    <li><a href="#reserva">Combo VIP Completo</a></li>
-                    <li><a href="#reserva">Pigmentação Capilar</a></li>
-                    <li><a href="#reserva">Corte Infantil</a></li>
+                    <li><a href="#reserva">Combo VIP Nicolas Galvan</a></li>
+                    <li><a href="#reserva">Corte Signature Fade</a></li>
+                    <li><a href="#reserva">Barboterapia com Toalha Quente</a></li>
+                    <li><a href="#reserva">Pigmentação de Barba</a></li>
+                    <li><a href="#reserva">Terapia Capilar & Hidratação</a></li>
                 </ul>
             </div>
 
             <div class="footer-col">
-                <h4>Contato & Endereço</h4>
+                <h4>Atendimento & Endereço</h4>
                 <p><i class="fa-solid fa-location-dot gold-text"></i> Av. Paulista, 1578 - São Paulo/SP</p>
                 <p><i class="fa-solid fa-phone gold-text"></i> (11) 3245-8890</p>
                 <p><i class="fa-brands fa-whatsapp gold-text"></i> (11) 98765-4321</p>
-                <p><i class="fa-solid fa-envelope gold-text"></i> contato@domnavalha.com.br</p>
+                <p><i class="fa-solid fa-envelope gold-text"></i> contato@nicolasgalvanbarber.com.br</p>
+                <p><a href="admin.html" style="color: var(--text-muted); font-size: 0.85rem;"><i class="fa-solid fa-lock gold-text"></i> Painel do Barbeiro</a></p>
             </div>
         </div>
 
         <div class="footer-bottom">
             <div class="container footer-bottom-content">
-                <p>&copy; 2026 Barbearia Dom Navalha Barber Club. Todos os direitos reservados.</p>
-                <p>Desenvolvido com sofisticação e alta performance.</p>
+                <p>&copy; 2026 Nicolas Galvan Barber Studio. Todos os direitos reservados.</p>
+                <p>Criado e desenvolvido com exclusividade para <strong>NICOLAS GALVAN</strong>.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Modal de Confirmação com Ticket da Reserva -->
     <div class="modal-backdrop" id="modal-success">
         <div class="modal-card">
             <div class="modal-icon">
                 <i class="fa-solid fa-circle-check"></i>
             </div>
             <h3>Agendamento Confirmado!</h3>
-            <p>Seu horário foi registrado em nosso sistema com sucesso.</p>
+            <p>Seu horário foi garantido no <strong>Nicolas Galvan Barber Studio</strong>.</p>
 
             <div class="modal-ticket" id="modal-ticket-details">
+                <!-- Preenchido via script.js -->
             </div>
 
             <div class="modal-actions">
                 <button class="btn btn-whatsapp btn-block" id="modal-whatsapp-btn">
-                    <i class="fa-brands fa-whatsapp"></i> Enviar Comprovante para Meu WhatsApp
+                    <i class="fa-brands fa-whatsapp"></i> Salvar Comprovante no WhatsApp
                 </button>
                 <button class="btn btn-outline btn-block" id="modal-close-btn">
-                    Fechar
+                    Concluir e Fechar
                 </button>
             </div>
         </div>
     </div>
 
-    <a href="https://wa.me/5511987654321?text=Ol%C3%A1!+Gostaria+de+tirar+uma+d%C3%BAvida+sobre+a+Barbearia+Dom+Navalha." target="_blank" class="floating-whatsapp" aria-label="Falar no WhatsApp">
+    <!-- Botão Flutuante do WhatsApp -->
+    <a href="https://wa.me/5511987654321?text=Ol%C3%A1!+Gostaria+de+tirar+uma+d%C3%BAvida+sobre+o+Nicolas+Galvan+Barber+Studio." target="_blank" rel="noopener noreferrer" class="floating-whatsapp" aria-label="Falar com Nicolas Galvan no WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
         <span class="tooltip">Fale Conosco</span>
     </a>
 
+    <!-- Notificação Toast -->
     <div class="toast" id="toast"></div>
 
+    <!-- Script Principal -->
     <script src="script.js"></script>
 </body>
 </html>

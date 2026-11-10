@@ -1,12 +1,15 @@
-import { Pool } from "pg"
-
+import { Pool } from "pg";
 
 const pool = new Pool({
-    database: "sistemabarbearia", 
-    user: "postgres", 
-    host: "localhost", 
-    port: 5432,
-    password: "senai"
+    database: process.env.DB_NAME || "sistemabarbearia", 
+    user: process.env.DB_USER || "postgres", 
+    host: process.env.DB_HOST || "localhost", 
+    port: parseInt(process.env.DB_PORT || "5432"),
+    password: process.env.DB_PASSWORD || "senai"
 });
 
-export default pool; 
+pool.on("error", (err) => {
+    console.warn("Aviso PostgreSQL:", err.message);
+});
+
+export default pool;

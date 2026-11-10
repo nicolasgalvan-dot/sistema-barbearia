@@ -1,12 +1,22 @@
+/**
+ * Nicolas Galvan Barber Studio - Script Principal
+ * Autor: NICOLAS GALVAN
+ */
+
 document.addEventListener("DOMContentLoaded", () => {
     initNavbar();
     initDatePicker();
     initTimeSlots();
     initBookingSync();
+    initServiceFilters();
+    initPhoneMask();
     initFaqAccordion();
     initBookingForm();
 });
 
+/* ==========================================================================
+   1. NAVEGAÇÃO & MENU MOBILE
+   ========================================================================== */
 function initNavbar() {
     const navbar = document.getElementById("navbar");
     const menuToggle = document.getElementById("menu-toggle");
@@ -14,7 +24,7 @@ function initNavbar() {
     const navLinks = document.querySelectorAll(".nav-link");
 
     window.addEventListener("scroll", () => {
-        if (window.scrollY > 50) {
+        if (window.scrollY > 40) {
             navbar.classList.add("scrolled");
         } else {
             navbar.classList.remove("scrolled");
@@ -47,18 +57,23 @@ function initNavbar() {
     }
 }
 
+/* ==========================================================================
+   2. SELETOR DE DATA
+   ========================================================================== */
 function initDatePicker() {
     const dateInput = document.getElementById("booking-date");
     if (!dateInput) return;
 
     const today = new Date();
     const yyyy = today.getFullYear();
-    const mm = String(today.getMonth() + 1).padStart(2, '0');
-    const dd = String(today.getDate()).padStart(2, '0');
+    const mm = String(today.getMonth() + 1).padStart(2, "0");
+    const dd = String(today.getDate()).padStart(2, "0");
     const minDateStr = `${yyyy}-${mm}-${dd}`;
-    
+
     dateInput.min = minDateStr;
-    dateInput.value = minDateStr;
+    if (!dateInput.value) {
+        dateInput.value = minDateStr;
+    }
 
     dateInput.addEventListener("change", () => {
         initTimeSlots();
@@ -66,9 +81,12 @@ function initDatePicker() {
     });
 }
 
+/* ==========================================================================
+   3. HORÁRIOS DISPONÍVEIS
+   ========================================================================== */
 const AVAILABLE_TIMES = [
-    "09:00", "09:45", "10:30", "11:15", 
-    "13:00", "13:45", "14:30", "15:15", 
+    "09:00", "09:45", "10:30", "11:15",
+    "13:00", "13:45", "14:30", "15:15",
     "16:00", "16:45", "17:30", "18:15", "19:00"
 ];
 
@@ -81,7 +99,7 @@ function initTimeSlots() {
     container.innerHTML = "";
     hiddenInput.value = "";
 
-    const selectedDate = dateInput ? new Date(dateInput.value + "T00:00:00") : new Date();
+    const selectedDate = dateInput && dateInput.value ? new Date(dateInput.value + "T00:00:00") : new Date();
     const isToday = new Date().toDateString() === selectedDate.toDateString();
     const now = new Date();
     const currentHour = now.getHours();
@@ -100,7 +118,7 @@ function initTimeSlots() {
 
         if (isPast) {
             btn.disabled = true;
-            btn.title = "Horário já passou";
+            btn.title = "Horário indisponível";
         } else {
             if (!firstAvailableSet) {
                 btn.classList.add("selected");
@@ -122,10 +140,75 @@ function initTimeSlots() {
     updateSummary();
 }
 
+/* ==========================================================================
+   4. FILTRO DE SERVIÇOS INTERATIVO
+   ========================================================================== */
+function initServiceFilters() {
+    const filterBtns = document.querySelectorAll(".filter-btn");
+    const pricingCards = document.querySelectorAll(".pricing-card");
+
+    if (!filterBtns.length || !pricingCards.length) return;
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            filterBtns.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+
+            const category = btn.getAttribute("data-filter");
+
+            pricingCards.forEach(card => {
+                const cardCategory = card.getAttribute("data-category");
+                if (category === "all" || cardCategory === category) {
+                    card.style.display = "flex";
+                    setTimeout(() => {
+                        card.style.opacity = "1";
+                        card.style.transform = "translateY(0)";
+                    }, 50);
+                } else {
+                    card.style.opacity = "0";
+                    card.style.transform = "translateY(15px)";
+                    setTimeout(() => {
+                        card.style.display = "none";
+                    }, 250);
+                }
+            });
+        });
+    });
+}
+
+/* ==========================================================================
+   5. MÁSCARA AUTOMÁTICA DE WHATSAPP / TELEFONE
+   ========================================================================== */
+function initPhoneMask() {
+    const phoneInput = document.getElementById("client-phone");
+    if (!phoneInput) return;
+
+    phoneInput.addEventListener("input", (e) => {
+        let value = e.target.value.replace(/\D/g, "");
+        if (value.length > 11) value = value.slice(0, 11);
+
+        if (value.length > 10) {
+            value = value.replace(/^(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
+        } else if (value.length > 6) {
+            value = value.replace(/^(\d{2})(\d{4})(\d{0,4})/, "($1) $2-$3");
+        } else if (value.length > 2) {
+            value = value.replace(/^(\d{2})(\d{0,5})/, "($1) $2");
+        } else if (value.length > 0) {
+            value = value.replace(/^(\d{0,2})/, "($1");
+        }
+
+        e.target.value = value;
+    });
+}
+
+/* ==========================================================================
+   6. SINCRONIZAÇÃO DE SELEÇÃO & RESUMO
+   ========================================================================== */
 function initBookingSync() {
     const serviceSelect = document.getElementById("select-service");
     const barberSelect = document.getElementById("select-barber");
 
+    // Seleção de barbeiro a partir dos cards
     document.querySelectorAll(".select-barber-btn").forEach(btn => {
         btn.addEventListener("click", () => {
             const barberName = btn.getAttribute("data-barber");
@@ -139,10 +222,11 @@ function initBookingSync() {
             }
             updateSummary();
             scrollToSection("reserva");
-            showToast(`Barbeiro ${barberName} selecionado!`);
+            showToast(`Barbeiro ${barberName} selecionado com sucesso!`);
         });
     });
 
+    // Seleção de serviço a partir dos cards
     document.querySelectorAll(".select-service-btn").forEach(btn => {
         btn.addEventListener("click", (e) => {
             const card = e.target.closest(".pricing-card");
@@ -184,7 +268,7 @@ function updateSummary() {
 
     if (serviceSelect && serviceSelect.selectedOptions[0]) {
         const selectedOpt = serviceSelect.selectedOptions[0];
-        const price = selectedOpt.getAttribute("data-price") || "75.00";
+        const price = selectedOpt.getAttribute("data-price") || "85.00";
         if (summaryService) summaryService.textContent = selectedOpt.value;
         if (summaryPrice) summaryPrice.textContent = `R$ ${parseFloat(price).toFixed(2).replace(".", ",")}`;
     }
@@ -199,7 +283,7 @@ function updateSummary() {
             const [y, m, d] = dateInput.value.split("-");
             summaryDateTime.textContent = `${d}/${m}/${y} às ${timeVal}`;
         } else {
-            summaryDateTime.textContent = `Aguardando horário`;
+            summaryDateTime.textContent = "Aguardando horário";
         }
     }
 }
@@ -211,6 +295,9 @@ function scrollToSection(id) {
     }
 }
 
+/* ==========================================================================
+   7. FORMULÁRIO DE AGENDAMENTO & INTEGRAÇÃO
+   ========================================================================== */
 function initBookingForm() {
     const form = document.getElementById("booking-form");
     const modal = document.getElementById("modal-success");
@@ -233,16 +320,17 @@ function initBookingForm() {
         const clientNotes = document.getElementById("client-notes").value.trim();
 
         if (!time) {
-            showToast("Por favor, selecione um horário disponível.");
+            showToast("Por favor, selecione um dos horários disponíveis acima.");
             return;
         }
 
         const [y, m, d] = dateRaw.split("-");
         const formattedDate = `${d}/${m}/${y}`;
-        const bookingCode = `DN-${Math.floor(1000 + Math.random() * 9000)}`;
+        // Código de reserva Nicolas Galvan
+        const bookingCode = `NG-${Math.floor(1000 + Math.random() * 9000)}`;
 
         const serviceSelect = document.getElementById("select-service");
-        const price = serviceSelect.selectedOptions[0]?.getAttribute("data-price") || "75.00";
+        const price = serviceSelect.selectedOptions[0]?.getAttribute("data-price") || "85.00";
         const formattedPrice = `R$ ${parseFloat(price).toFixed(2).replace(".", ",")}`;
 
         const bookingData = {
@@ -258,6 +346,12 @@ function initBookingForm() {
             observacoes: clientNotes
         };
 
+        const submitBtn = document.getElementById("submit-booking-btn");
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Confirmando Reserva...`;
+        }
+
         try {
             await fetch("/api/agendamentos", {
                 method: "POST",
@@ -265,14 +359,20 @@ function initBookingForm() {
                 body: JSON.stringify(bookingData)
             });
         } catch (err) {
-            console.warn("Backend API offline ou não configurado ainda. Agendamento processado localmente.", err);
+            console.warn("Backend API offline ou executando modo estático. Agendamento salvo localmente.", err);
+        } finally {
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = `<i class="fa-solid fa-circle-check"></i> Finalizar Agendamento`;
+            }
         }
 
+        // Preenche o comprovante no modal
         if (modalTicket) {
             modalTicket.innerHTML = `
                 <div class="ticket-line"><span>Código da Reserva:</span> <strong class="gold-text">${bookingCode}</strong></div>
                 <div class="ticket-line"><span>Cliente:</span> <strong>${clientName}</strong></div>
-                <div class="ticket-line"><span>Telefone:</span> <strong>${clientPhone}</strong></div>
+                <div class="ticket-line"><span>WhatsApp:</span> <strong>${clientPhone}</strong></div>
                 <div class="ticket-line"><span>Serviço:</span> <strong>${service}</strong></div>
                 <div class="ticket-line"><span>Barbeiro:</span> <strong>${barber}</strong></div>
                 <div class="ticket-line"><span>Data & Horário:</span> <strong>${formattedDate} às ${time}</strong></div>
@@ -280,17 +380,18 @@ function initBookingForm() {
             `;
         }
 
+        // Link para compartilhar comprovante no WhatsApp
         if (modalWhatsappBtn) {
             const whatsAppText = encodeURIComponent(
-                `💈 *CONFIRMAÇÃO DE AGENDAMENTO - DOM NAVALHA* 💈\n\n` +
-                `*Código:* ${bookingCode}\n` +
+                `💈 *CONFIRMAÇÃO DE AGENDAMENTO - NICOLAS GALVAN BARBER STUDIO* 💈\n\n` +
+                `*Código da Reserva:* ${bookingCode}\n` +
                 `*Cliente:* ${clientName}\n` +
                 `*WhatsApp:* ${clientPhone}\n` +
                 `*Serviço:* ${service} (${formattedPrice})\n` +
-                `*Barbeiro:* ${barber}\n` +
+                `*Profissional:* ${barber}\n` +
                 `*Data:* ${formattedDate} às ${time}\n` +
                 (clientNotes ? `*Observações:* ${clientNotes}\n` : "") +
-                `\nOlá, gostaria de confirmar o agendamento acima realizado pelo site!`
+                `\nOlá, confirmo meu agendamento realizado pelo site oficial de Nicolas Galvan!`
             );
             modalWhatsappBtn.onclick = () => {
                 window.open(`https://wa.me/5511987654321?text=${whatsAppText}`, "_blank");
@@ -318,6 +419,9 @@ function initBookingForm() {
     }
 }
 
+/* ==========================================================================
+   8. PERGUNTAS FREQUENTES (ACCORDION)
+   ========================================================================== */
 function initFaqAccordion() {
     const faqItems = document.querySelectorAll(".faq-item");
 
@@ -344,6 +448,9 @@ function initFaqAccordion() {
     });
 }
 
+/* ==========================================================================
+   9. NOTIFICAÇÃO TOAST
+   ========================================================================== */
 function showToast(message) {
     const toast = document.getElementById("toast");
     if (!toast) return;

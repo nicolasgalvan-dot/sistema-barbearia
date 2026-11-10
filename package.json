@@ -1,9 +1,9 @@
 {
-  "name": "sistema_barbearia",
+  "name": "nicolas-galvan-barber-studio",
   "version": "1.0.0",
-  "description": "",
+  "description": "Sistema de Agendamento e Barbearia Premium - Nicolas Galvan",
   "license": "ISC",
-  "author": "",
+  "author": "NICOLAS GALVAN",
   "type": "module",
   "main": "server.js",
   "scripts": {

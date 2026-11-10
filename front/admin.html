@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="NICOLAS GALVAN">
+    <title>Painel do Barbeiro | Nicolas Galvan Barber Studio</title>
+
+    <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Estilos Compartilhados -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .admin-page {
+            background-color: var(--bg-main);
+            min-height: 100vh;
+            padding-bottom: 60px;
+        }
+
+        .admin-header {
+            background: rgba(11, 14, 20, 0.95);
+            border-bottom: 1px solid var(--border-gold);
+            padding: 18px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .admin-nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .admin-title-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(229, 169, 80, 0.15);
+            border: 1px solid var(--border-gold);
+            color: var(--gold-light);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: var(--radius-full);
+            margin-left: 10px;
+            letter-spacing: 1px;
+        }
+
+        .admin-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .dashboard-container {
+            margin-top: 35px;
+        }
+
+        /* KPIs / Cards de Resumo */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+
+        .kpi-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: var(--transition);
+        }
+
+        .kpi-card:hover {
+            border-color: var(--border-gold);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-card);
+        }
+
+        .kpi-icon {
+            width: 54px;
+            height: 54px;
+            border-radius: var(--radius-sm);
+            background: rgba(229, 169, 80, 0.12);
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .kpi-info h4 {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .kpi-number {
+            font-family: var(--font-heading);
+            font-size: 1.9rem;
+            font-weight: 800;
+            color: var(--text-white);
+            line-height: 1.1;
+        }
+
+        /* Barra de Filtros e Busca */
+        .admin-controls-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 22px 24px;
+            margin-bottom: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 260px;
+            position: relative;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+
+        .search-box input {
+            padding-left: 42px;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .filter-select {
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            color: var(--text-white);
+            padding: 10px 16px;
+            border-radius: var(--radius-sm);
+            font-size: 0.9rem;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .filter-select:focus {
+            border-color: var(--gold);
+        }
+
+        /* Tabela de Agendamentos */
+        .table-responsive {
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: var(--radius-md);
+            overflow-x: auto;
+            box-shadow: var(--shadow-card);
+        }
+
+        .bookings-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.92rem;
+        }
+
+        .bookings-table th {
+            background: rgba(11, 14, 20, 0.7);
+            color: var(--gold-light);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            font-size: 0.82rem;
+            white-space: nowrap;
+        }
+
+        .bookings-table td {
+            padding: 16px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-light);
+            vertical-align: middle;
+        }
+
+        .bookings-table tr:hover {
+            background: rgba(229, 169, 80, 0.03);
+        }
+
+        .client-info strong {
+            display: block;
+            color: var(--text-white);
+            font-size: 0.95rem;
+        }
+
+        .client-info small {
+            color: var(--text-muted);
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            border-radius: var(--radius-full);
+            font-size: 0.76rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-badge.confirmado {
+            background: rgba(37, 211, 102, 0.15);
+            color: #25d366;
+            border: 1px solid rgba(37, 211, 102, 0.3);
+        }
+
+        .status-badge.concluido {
+            background: rgba(59, 130, 246, 0.15);
+            color: #60a5fa;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .status-badge.cancelado {
+            background: rgba(239, 68, 68, 0.15);
+            color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .table-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .action-btn {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            color: var(--text-light);
+            width: 34px;
+            height: 34px;
+            border-radius: var(--radius-sm);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.85rem;
+        }
+
+        .action-btn:hover {
+            border-color: var(--gold);
+            color: var(--gold-light);
+            transform: scale(1.08);
+        }
+
+        .action-btn.whatsapp-btn {
+            color: #25d366;
+            border-color: rgba(37, 211, 102, 0.3);
+        }
+
+        .action-btn.whatsapp-btn:hover {
+            background: #25d366;
+            color: #fff;
+        }
+
+        .action-btn.delete-btn:hover {
+            border-color: #ef4444;
+            color: #ef4444;
+        }
+
+        .empty-state {
+            padding: 50px 20px;
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        .empty-state i {
+            font-size: 2.8rem;
+            margin-bottom: 14px;
+            color: var(--gold);
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body class="admin-page">
+
+    <!-- Top Admin Header -->
+    <header class="admin-header">
+        <div class="container admin-nav-container">
+            <div class="brand-logo">
+                <div class="brand-icon-box">
+                    <i class="fa-solid fa-scissors"></i>
+                </div>
+                <div class="brand-name">
+                    <span>NICOLAS GALVAN</span>
+                    <small>BARBER STUDIO</small>
+                </div>
+                <span class="admin-title-badge"><i class="fa-solid fa-shield"></i> PAINEL GESTÃO</span>
+            </div>
+
+            <div class="admin-actions">
+                <button class="btn btn-outline" id="refresh-btn">
+                    <i class="fa-solid fa-rotate"></i> Atualizar
+                </button>
+                <a href="index.html" class="btn btn-primary">
+                    <i class="fa-solid fa-arrow-left"></i> Voltar ao Site
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container dashboard-container">
+        
+        <!-- Indicadores KPIs -->
+        <section class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-icon"><i class="fa-regular fa-calendar-check"></i></div>
+                <div class="kpi-info">
+                    <h4>Total de Agendamentos</h4>
+                    <div class="kpi-number" id="kpi-total">0</div>
+                </div>
+            </div>
+
+            <div class="kpi-card">
+                <div class="kpi-icon"><i class="fa-solid fa-circle-check"></i></div>
+                <div class="kpi-info">
+                    <h4>Confirmados</h4>
+                    <div class="kpi-number text-gold" id="kpi-confirmed">0</div>
+                </div>
+            </div>
+
+            <div class="kpi-card">
+                <div class="kpi-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                <div class="kpi-info">
+                    <h4>Faturamento Projetado</h4>
+                    <div class="kpi-number" id="kpi-revenue">R$ 0,00</div>
+                </div>
+            </div>
+
+            <div class="kpi-card">
+                <div class="kpi-icon"><i class="fa-solid fa-user-tie"></i></div>
+                <div class="kpi-info">
+                    <h4>Líder de Atendimentos</h4>
+                    <div class="kpi-number" style="font-size: 1.3rem;" id="kpi-top-barber">Nicolas Galvan</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Controles de Busca e Filtros -->
+        <section class="admin-controls-card">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="search-input" class="form-control" placeholder="Buscar por cliente, código ou telefone...">
+            </div>
+
+            <div class="filter-group">
+                <select id="filter-barber" class="filter-select">
+                    <option value="">Todos os Barbeiros</option>
+                    <option value="Nicolas Galvan">Nicolas Galvan</option>
+                    <option value="Rafael Mendes">Rafael Mendes</option>
+                    <option value="Lucas Albuquerque">Lucas Albuquerque</option>
+                    <option value="André Santos">André Santos</option>
+                </select>
+
+                <select id="filter-status" class="filter-select">
+                    <option value="">Todos os Status</option>
+                    <option value="Confirmado">Confirmado</option>
+                    <option value="Concluído">Concluído</option>
+                    <option value="Cancelado">Cancelado</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Tabela Responsiva de Agendamentos -->
+        <section class="table-responsive">
+            <table class="bookings-table">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Cliente / Contato</th>
+                        <th>Profissional</th>
+                        <th>Serviço</th>
+                        <th>Data & Hora</th>
+                        <th>Valor</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="bookings-table-body">
+                    <!-- Preenchido via JavaScript -->
+                </tbody>
+            </table>
+            <div id="empty-state" class="empty-state" style="display: none;">
+                <i class="fa-regular fa-calendar-xmark"></i>
+                <h3>Nenhum agendamento encontrado</h3>
+                <p>Nenhum registro corresponde aos filtros selecionados.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <script>
+        let allBookings = [];
+
+        document.addEventListener("DOMContentLoaded", () => {
+            loadBookings();
+
+            document.getElementById("refresh-btn").addEventListener("click", () => {
+                loadBookings();
+                showToast("Lista de agendamentos atualizada!");
+            });
+
+            document.getElementById("search-input").addEventListener("input", renderTable);
+            document.getElementById("filter-barber").addEventListener("change", renderTable);
+            document.getElementById("filter-status").addEventListener("change", renderTable);
+        });
+
+        async function loadBookings() {
+            try {
+                const res = await fetch("/api/agendamentos");
+                const data = await res.json();
+                if (data.sucesso && Array.isArray(data.agendamentos)) {
+                    allBookings = data.agendamentos;
+                    updateKPIs(allBookings);
+                    renderTable();
+                }
+            } catch (err) {
+                console.error("Erro ao carregar agendamentos:", err);
+                showToast("Erro ao conectar à API de agendamentos.");
+            }
+        }
+
+        function updateKPIs(bookings) {
+            document.getElementById("kpi-total").textContent = bookings.length;
+
+            const confirmed = bookings.filter(b => b.status === "Confirmado").length;
+            document.getElementById("kpi-confirmed").textContent = confirmed;
+
+            let totalVal = 0;
+            bookings.forEach(b => {
+                if (b.status !== "Cancelado") {
+                    const num = parseFloat((b.valor || "0").replace(/[^\d,]/g, "").replace(",", ".")) || 0;
+                    totalVal += num;
+                }
+            });
+            document.getElementById("kpi-revenue").textContent = `R$ ${totalVal.toFixed(2).replace(".", ",")}`;
+        }
+
+        function renderTable() {
+            const tbody = document.getElementById("bookings-table-body");
+            const emptyState = document.getElementById("empty-state");
+            const searchVal = document.getElementById("search-input").value.toLowerCase().trim();
+            const barberVal = document.getElementById("filter-barber").value;
+            const statusVal = document.getElementById("filter-status").value;
+
+            const filtered = allBookings.filter(b => {
+                const matchSearch = !searchVal || 
+                    (b.cliente && b.cliente.toLowerCase().includes(searchVal)) ||
+                    (b.codigo && b.codigo.toLowerCase().includes(searchVal)) ||
+                    (b.telefone && b.telefone.includes(searchVal)) ||
+                    (b.servico && b.servico.toLowerCase().includes(searchVal));
+
+                const matchBarber = !barberVal || (b.barbeiro && b.barbeiro.includes(barberVal));
+                const matchStatus = !statusVal || (b.status === statusVal);
+
+                return matchSearch && matchBarber && matchStatus;
+            });
+
+            tbody.innerHTML = "";
+
+            if (filtered.length === 0) {
+                emptyState.style.display = "block";
+                return;
+            } else {
+                emptyState.style.display = "none";
+            }
+
+            filtered.forEach(b => {
+                const tr = document.createElement("tr");
+
+                const statusClass = (b.status || "confirmado").toLowerCase();
+
+                const cleanPhone = (b.telefone || "").replace(/\D/g, "");
+                const waText = encodeURIComponent(
+                    `Olá ${b.cliente}! Aqui é da equipe do *Nicolas Galvan Barber Studio*. Lembramos do seu agendamento de *${b.servico}* em *${b.data} às ${b.hora}*. Estamos te aguardando!`
+                );
+                const waLink = `https://wa.me/55${cleanPhone}?text=${waText}`;
+
+                tr.innerHTML = `
+                    <td><strong class="gold-text">${b.codigo}</strong></td>
+                    <td class="client-info">
+                        <strong>${escapeHtml(b.cliente)}</strong>
+                        <small><i class="fa-brands fa-whatsapp gold-text"></i> ${escapeHtml(b.telefone)}</small>
+                    </td>
+                    <td><strong>${escapeHtml(b.barbeiro)}</strong></td>
+                    <td>${escapeHtml(b.servico)}</td>
+                    <td><i class="fa-regular fa-clock gold-text"></i> ${escapeHtml(b.data)} às <strong>${escapeHtml(b.hora)}</strong></td>
+                    <td><strong>${escapeHtml(b.valor || "R$ 85,00")}</strong></td>
+                    <td>
+                        <span class="status-badge ${statusClass}">
+                            <i class="fa-solid fa-circle" style="font-size: 0.5rem;"></i> ${escapeHtml(b.status || "Confirmado")}
+                        </span>
+                    </td>
+                    <td>
+                        <div class="table-actions">
+                            <a href="${waLink}" target="_blank" class="action-btn whatsapp-btn" title="Lembrar cliente no WhatsApp">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </a>
+                            <button class="action-btn" title="Marcar como Concluído" onclick="changeStatus('${b.codigo}', 'Concluído')">
+                                <i class="fa-solid fa-check"></i>
+                            </button>
+                            <button class="action-btn delete-btn" title="Cancelar Agendamento" onclick="changeStatus('${b.codigo}', 'Cancelado')">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+                        </div>
+                    </td>
+                `;
+
+                tbody.appendChild(tr);
+            });
+        }
+
+        async function changeStatus(codigo, newStatus) {
+            try {
+                const res = await fetch(`/api/agendamentos/${codigo}`, {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ status: newStatus })
+                });
+                const data = await res.json();
+                if (data.sucesso) {
+                    showToast(`Agendamento ${codigo}: ${newStatus}!`);
+                    loadBookings();
+                }
+            } catch (err) {
+                showToast("Erro ao atualizar status.");
+            }
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById("toast");
+            if (!toast) return;
+            toast.textContent = message;
+            toast.classList.add("show");
+            setTimeout(() => toast.classList.remove("show"), 3000);
+        }
+
+        function escapeHtml(str) {
+            if (!str) return "";
+            return String(str)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+    </script>
+</body>
+</html>
