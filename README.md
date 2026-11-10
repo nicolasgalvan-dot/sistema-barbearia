@@ -1,19 +1,19 @@
-# 💈 Nicolas Galvan Barber Studio
+#  Nicolas Galvan Barber Studio
 
 > Sistema completo e responsivo de agendamento online e gestão para barbearia de alto padrão.
 > **Autor & Idealizador:** NICOLAS GALVAN
 
 ---
 
-## 🌟 Sobre o Projeto
+##  Sobre o Projeto
 
 O **Nicolas Galvan Barber Studio** foi desenvolvido com visual moderno em tema dark luxury (obsidian & ouro nobre), projetado para oferecer a melhor experiência ao cliente:
-- 📅 **Agendamento em tempo real** com geração de código exclusivo (`NG-XXXX`).
-- 📲 **Confirmação instantânea por WhatsApp** com comprovante estruturado.
-- ✂️ **Filtros interativos por categoria de serviço** (Cortes, Barba, Combos VIP, Tratamentos).
-- 💈 **Seleção dinâmica de barbeiro e cálculo de valores em tempo real**.
-- 📱 **Interface 100% responsiva** adaptada para smartphones, tablets e desktop.
-- ⚡ **Backend em Node.js (Express)** com suporte a banco de dados PostgreSQL e fallback inteligente em memória.
+- **Agendamento em tempo real** com geração de código exclusivo (`NG-XXXX`).
+-  **Confirmação instantânea por WhatsApp** com comprovante estruturado.
+-  **Filtros interativos por categoria de serviço** (Cortes, Barba, Combos VIP, Tratamentos).
+-  **Seleção dinâmica de barbeiro e cálculo de valores em tempo real**.
+-  **Interface 100% responsiva** adaptada para smartphones, tablets e desktop.
+-  **Backend em Node.js (Express)** com suporte a banco de dados PostgreSQL e fallback inteligente em memória.
 
 ---
 
