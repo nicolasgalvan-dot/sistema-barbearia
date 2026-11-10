@@ -39,11 +39,11 @@ npm run dev
 ```
 
 O servidor iniciará em:
-👉 **http://localhost:3000**
+ **http://localhost:3000**
 
 ---
 
-## 🗄️ Estrutura do Banco de Dados (PostgreSQL)
+##  Estrutura do Banco de Dados (PostgreSQL)
 
 O arquivo `db.sql` contém a estrutura completa das tabelas e os dados iniciais:
 - **`barbeiros`**: Informações da equipe liderada por Nicolas Galvan.
@@ -58,7 +58,7 @@ psql -U postgres -d sistemabarbearia -f db.sql
 
 ---
 
-## 📡 Endpoints da API
+##  Endpoints da API
 
 | Método | Rota | Descrição |
 |---|---|---|
@@ -70,7 +70,7 @@ psql -U postgres -d sistemabarbearia -f db.sql
 
 ---
 
-## 🎨 Identidade Visual & Tecnologias
+##  Identidade Visual & Tecnologias
 
 - **Front-end:** HTML5 Semântico, CSS3 Moderno (Variáveis CSS, Flexbox, Grid), JavaScript ES6+.
 - **Tipografia:** Google Fonts (*Outfit* para títulos e *Plus Jakarta Sans* para leitura).
