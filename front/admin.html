@@ -371,7 +371,7 @@
                 <div class="kpi-icon"><i class="fa-solid fa-user-tie"></i></div>
                 <div class="kpi-info">
                     <h4>Líder de Atendimentos</h4>
-                    <div class="kpi-number" style="font-size: 1.3rem;" id="kpi-top-barber">Nicolas Galvan</div>
+                    <div class="kpi-number" style="font-size: 1.3rem;" id="kpi-top-barber">-</div>
                 </div>
             </div>
         </section>
@@ -504,13 +504,25 @@
             document.getElementById("kpi-confirmed").textContent = confirmed;
 
             let totalVal = 0;
+            const barberCounts = {};
             bookings.forEach(b => {
                 if (b.status !== "Cancelado") {
                     const num = parseFloat((b.valor || "0").replace(/[^\d,]/g, "").replace(",", ".")) || 0;
                     totalVal += num;
                 }
+                if (b.barbeiro) {
+                    barberCounts[b.barbeiro] = (barberCounts[b.barbeiro] || 0) + 1;
+                }
             });
             document.getElementById("kpi-revenue").textContent = `R$ ${totalVal.toFixed(2).replace(".", ",")}`;
+
+            const topBarberElem = document.getElementById("kpi-top-barber");
+            if (bookings.length > 0) {
+                const topBarber = Object.entries(barberCounts).sort((a, b) => b[1] - a[1])[0];
+                topBarberElem.textContent = topBarber ? topBarber[0] : "-";
+            } else {
+                topBarberElem.textContent = "-";
+            }
         }
 
         function renderTable() {
